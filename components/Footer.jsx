@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="border-t border-white/10 bg-navy-950">
       <div className="container-x grid gap-12 py-16 lg:grid-cols-[1.4fr_1fr_1.2fr]">
         <div>
-          <Logo />
+          <Logo imgClassName="h-16 w-auto sm:h-20" />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-slate-400">
             A UK &amp; UAE-based origination and transaction advisory firm. We connect
             opportunities, capital and counterparties across Africa, the GCC and

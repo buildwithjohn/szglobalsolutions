@@ -34,8 +34,8 @@ export default function Navbar() {
           : 'border-b border-transparent bg-navy-950/60 backdrop-blur-sm'
       }`}
     >
-      <nav className="container-x flex h-[72px] items-center justify-between gap-4">
-        <Logo />
+      <nav className="container-x flex h-20 items-center justify-between gap-4">
+        <Logo priority imgClassName="h-12 w-auto sm:h-14" />
 
         <ul className="hidden items-center gap-1 lg:flex">
           {nav.map((item) => (
