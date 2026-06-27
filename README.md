@@ -42,12 +42,38 @@ reference/          # Original design mockups (for reference only)
 - **Imagery:** referenced from Unsplash (Unsplash License). Swap the URLs in
   `lib/site.js` to use the client's own photography.
 
+## Contact form
+
+The form (`components/ContactForm.jsx`) POSTs to a Next.js route handler at
+`app/api/contact/route.js`, which sends the enquiry by email via **Resend**.
+It validates input server-side, includes a honeypot to drop bot spam, and sets
+the visitor's address as `reply-to` so you can reply directly.
+
+**Setup:**
+
+1. Create a free account and API key at <https://resend.com>.
+2. Verify your sending domain in Resend (Domains → Add Domain) so mail can be
+   sent from `@szglobalsolutions.com`. For quick local testing you can instead
+   use `onboarding@resend.dev` as the `CONTACT_FROM_EMAIL`.
+3. Copy `.env.example` → `.env.local` and fill in the values:
+
+   ```
+   RESEND_API_KEY=re_xxxxxxxx
+   CONTACT_TO_EMAIL=support@szglobalsolutions.com
+   CONTACT_FROM_EMAIL=SZ Global Solutions <noreply@szglobalsolutions.com>
+   ```
+
+4. On **Vercel**, add the same three variables under
+   Project → Settings → Environment Variables, then redeploy.
+
+If `RESEND_API_KEY` is missing the API returns a friendly error and logs a
+warning — the rest of the site is unaffected.
+
 ## Notes
 
-- The contact form opens the visitor's email client (`mailto:`). To capture
-  submissions server-side, wire the form to a form service (e.g. Formspree,
-  Resend, or a Next.js route handler) in `components/ContactForm.jsx`.
 - Replace placeholder copy in `/insights` with real published articles.
+- Imagery uses Unsplash placeholders — swap the URLs in `lib/site.js` for the
+  client's own photography.
 
 ## Deployment
 
