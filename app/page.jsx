@@ -115,21 +115,32 @@ export default function HomePage() {
                 Explore Our Approach <Arrow width={16} height={16} />
               </Link>
             </div>
+
+            {/* Cross-Border Expertise — relocated here */}
+            <div className="mt-8 inline-flex max-w-md animate-fade-up items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 [animation-delay:880ms]">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gold/15 text-gold">
+                <Globe width={20} height={20} />
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gold">
+                  Cross-Border Expertise
+                </p>
+                <p className="mt-0.5 text-xs leading-relaxed text-slate-400">
+                  Operating from the UK and UAE with deep networks across Africa and global
+                  markets.
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div className="animate-fade-up [animation-delay:700ms] lg:justify-self-end">
-            <div className="group max-w-sm animate-float rounded-xl border border-gold/30 bg-navy-900/80 p-7 backdrop-blur transition hover:border-gold/60">
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gold/15 text-gold [animation:pulse-ring_2.6s_ease-out_infinite]">
-                <Globe width={26} height={26} />
-              </div>
-              <h3 className="mt-5 font-display text-lg font-semibold text-gold">
-                CROSS-BORDER EXPERTISE
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-300">
-                Operating from the UK and UAE with deep networks across Africa and global
-                markets.
-              </p>
-            </div>
+          {/* Animated official logo */}
+          <div className="flex animate-fade-up justify-center [animation-delay:700ms] lg:justify-self-end">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo.png"
+              alt="SZ Global Solutions"
+              className="animate-breathe w-full max-w-sm drop-shadow-[0_18px_40px_rgba(0,0,0,0.55)] lg:max-w-md"
+            />
           </div>
         </div>
       </section>
