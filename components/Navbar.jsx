@@ -34,15 +34,15 @@ export default function Navbar() {
           : 'border-b border-transparent bg-navy-950/60 backdrop-blur-sm'
       }`}
     >
-      <nav className="container-x flex h-20 items-center justify-between gap-4">
-        <Logo priority imgClassName="h-12 w-auto sm:h-14" />
+      <nav className="mx-auto flex h-20 w-full max-w-[1440px] items-center justify-between gap-3 px-5 sm:px-8">
+        <Logo priority imgClassName="h-11 w-auto sm:h-12" />
 
         <ul className="hidden items-center gap-0.5 xl:flex">
           {nav.map((item) => (
             <li key={item.href} className="group relative">
               <Link
                 href={item.href}
-                className={`flex items-center gap-1 rounded-md px-2.5 py-2 text-[13px] font-medium transition ${
+                className={`flex items-center gap-1 whitespace-nowrap rounded-md px-2.5 py-2 text-[13px] font-medium transition ${
                   isActive(item.href)
                     ? 'text-gold'
                     : 'text-slate-300 hover:text-white'
@@ -75,7 +75,7 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden xl:block">
-          <Link href="/contact" className="btn-primary !px-4">
+          <Link href="/contact" className="btn-primary whitespace-nowrap !px-4">
             Get Started <Arrow width={16} height={16} />
           </Link>
         </div>
