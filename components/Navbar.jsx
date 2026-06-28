@@ -35,7 +35,7 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex h-20 w-full max-w-[1440px] items-center justify-between gap-3 px-5 sm:px-8">
-        <Logo priority imgClassName="h-11 w-auto sm:h-12" />
+        <Logo variant="mark" priority imgClassName="h-10 w-auto sm:h-12" />
 
         <ul className="hidden items-center gap-0.5 xl:flex">
           {nav.map((item) => (
