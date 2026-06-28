@@ -37,12 +37,12 @@ export default function Navbar() {
       <nav className="container-x flex h-20 items-center justify-between gap-4">
         <Logo priority imgClassName="h-12 w-auto sm:h-14" />
 
-        <ul className="hidden items-center gap-1 lg:flex">
+        <ul className="hidden items-center gap-0.5 xl:flex">
           {nav.map((item) => (
             <li key={item.href} className="group relative">
               <Link
                 href={item.href}
-                className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition ${
+                className={`flex items-center gap-1 rounded-md px-2.5 py-2 text-[13px] font-medium transition ${
                   isActive(item.href)
                     ? 'text-gold'
                     : 'text-slate-300 hover:text-white'
@@ -74,8 +74,8 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden lg:block">
-          <Link href="/contact" className="btn-primary">
+        <div className="hidden xl:block">
+          <Link href="/contact" className="btn-primary !px-4">
             Get Started <Arrow width={16} height={16} />
           </Link>
         </div>
@@ -83,7 +83,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-md border border-white/15 text-white lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-md border border-white/15 text-white xl:hidden"
           aria-label="Toggle navigation menu"
           aria-expanded={open}
         >
@@ -95,7 +95,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="border-t border-white/10 bg-navy-900 lg:hidden">
+        <div className="border-t border-white/10 bg-navy-900 xl:hidden">
           <ul className="container-x flex flex-col py-3">
             {nav.map((item) => (
               <li key={item.href}>

@@ -1,6 +1,17 @@
 import Link from 'next/link';
 import { Arrow } from './Icons';
 
+// Standalone uppercase section label exactly as shown on the templates
+// (e.g. "WHAT WE DO", "OUR TRANSACTION METHOD", "WHERE WE FOCUS").
+export function SectionLabel({ children, center }) {
+  return (
+    <div data-reveal className={center ? 'text-center' : ''}>
+      <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gold">{children}</p>
+      <span className={`grow-line mt-3 ${center ? 'mx-auto' : ''}`} />
+    </div>
+  );
+}
+
 // Eyebrow + heading block
 export function SectionHeading({ eyebrow, title, accent, subtitle, center, light }) {
   return (

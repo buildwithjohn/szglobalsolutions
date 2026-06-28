@@ -7,15 +7,19 @@ Built with **Next.js 14 (App Router)** and **Tailwind CSS**.
 
 ## Pages
 
-| Route                  | Description                                              |
-| ---------------------- | -------------------------------------------------------- |
-| `/`                    | Home — Origination. Structuring. Execution.              |
-| `/about`               | Who We Are, where we operate, mission & vision           |
-| `/what-we-do`          | Three capabilities: Origination, Capital, Transaction    |
-| `/energy-commodities`  | Sectors we serve across the value chain                  |
-| `/our-approach`        | Six-stage disciplined approach & principles              |
-| `/insights`            | Articles & perspectives                                  |
-| `/contact`             | Enquiry form & contact details                           |
+Each page reproduces the supplied design template verbatim.
+
+| Route                  | Template               | Description                                       |
+| ---------------------- | ---------------------- | ------------------------------------------------- |
+| `/`                    | Home (01)              | Origination. Structuring. Execution.              |
+| `/about`               | About (05)             | Who We Are, where we operate, mission & vision    |
+| `/what-we-do`          | What We Do (06)        | Three capabilities + who we work with             |
+| `/our-approach`        | Our Approach (02)      | Six-stage approach, principles, global perspective|
+| `/why-choose-us`       | Why Choose Us (03)     | Why clients choose us, sectors we serve, impact   |
+| `/value-proposition`   | Value Proposition (04) | How we add value, who we work with                |
+| `/energy-commodities`  | —                      | Placeholder (no template supplied)                |
+| `/insights`            | —                      | Placeholder (no template supplied)                |
+| `/contact`             | —                      | Get in touch + enquiry form (Resend backend)      |
 
 ## Getting started
 

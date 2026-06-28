@@ -1,5 +1,5 @@
 import { img } from '@/lib/site';
-import { SectionHeading, CtaBand, Stat } from '@/components/ui';
+import { SectionLabel } from '@/components/ui';
 import {
   Globe,
   Handshake,
@@ -26,11 +26,11 @@ const pillars = [
 ];
 
 const operate = [
-  { region: 'United Kingdom', city: 'London', image: img.city },
-  { region: 'United Arab Emirates', city: 'Dubai', image: img.dubai },
-  { region: 'Africa', city: 'Across key markets', image: img.coast },
+  { region: 'UNITED KINGDOM', city: 'London', image: img.city },
+  { region: 'UNITED ARAB EMIRATES', city: 'Dubai', image: img.dubai },
+  { region: 'AFRICA', city: 'Across key markets', image: img.coast },
   { region: 'GCC', city: 'Strategic presence', image: img.finance },
-  { region: 'International Markets', city: 'Global reach', image: img.worldNight },
+  { region: 'INTERNATIONAL MARKETS', city: 'Global reach', image: img.worldNight },
 ];
 
 const whyWork = [
@@ -39,12 +39,6 @@ const whyWork = [
   { icon: Chart, title: 'Execution', text: 'We focus on action, coordination and measurable outcomes.' },
   { icon: Diamond, title: 'Value Creation', text: 'Our objective is to create long-term value for our clients and partners.' },
   { icon: Handshake, title: 'Collaboration', text: 'We build enduring relationships based on trust and performance.' },
-];
-
-const stats = [
-  { value: '50+', label: 'Transactions Supported' },
-  { value: '25+', label: 'Countries Engaged' },
-  { value: '100+', label: 'Clients & Partners Served' },
 ];
 
 export default function AboutPage() {
@@ -59,7 +53,7 @@ export default function AboutPage() {
         </div>
         <div className="container-x relative grid gap-12 py-20 sm:py-28 lg:grid-cols-[1.6fr_1fr]">
           <div>
-            <p className="eyebrow animate-fade-up">About SZ Global Solutions</p>
+            <p className="eyebrow animate-fade-up">ABOUT SZ GLOBAL SOLUTIONS</p>
             <h1 className="mt-4 font-display text-5xl font-bold leading-[1.05] text-white sm:text-6xl lg:text-7xl">
               <span className="line-reveal block">
                 <span style={{ '--line-delay': '120ms' }}>
@@ -93,7 +87,7 @@ export default function AboutPage() {
           </div>
 
           <div className="animate-fade-up rounded-xl border border-white/10 bg-navy-900/70 p-6 backdrop-blur">
-            <p className="eyebrow">Where We Operate</p>
+            <p className="eyebrow">WHERE WE OPERATE</p>
             <ul className="mt-5 space-y-4">
               {operate.map((o) => (
                 <li key={o.region} className="flex items-center gap-4">
@@ -120,12 +114,12 @@ export default function AboutPage() {
         <div className="container-x grid gap-6 lg:grid-cols-2">
           {[
             {
-              tag: 'Our Mission',
+              tag: 'OUR MISSION',
               image: img.mountain,
               text: 'To originate opportunities, structure commercially robust transactions and connect capital, counterparties and markets to unlock sustainable growth.',
             },
             {
-              tag: 'Our Vision',
+              tag: 'OUR VISION',
               image: img.lighthouse,
               text: 'To be a trusted cross-border origination and transaction advisory firm connecting Africa with global markets through disciplined execution, strategic relationships and long-term value creation.',
             },
@@ -145,9 +139,9 @@ export default function AboutPage() {
       </section>
 
       {/* WHY CLIENTS WORK WITH US */}
-      <section className="section border-y border-white/10 bg-navy-900/40">
+      <section className="section border-t border-white/10 bg-navy-900/40">
         <div className="container-x">
-          <SectionHeading center eyebrow="Why Clients Work With Us" title="Principles That" accent="Set Us Apart" />
+          <SectionLabel center>WHY CLIENTS WORK WITH US</SectionLabel>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {whyWork.map((w) => (
               <div key={w.title} className="card text-center">
@@ -161,30 +155,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* IMPACT STATS */}
-      <section className="section">
-        <div className="container-x">
-          <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-navy-800 to-navy-900 p-10 sm:p-14">
-            <div className="grid items-center gap-10 lg:grid-cols-[1fr_2fr]">
-              <div>
-                <p className="eyebrow">Our Impact</p>
-                <h2 className="mt-3 heading-lg">
-                  Creating Opportunities.<br />
-                  Building <span className="text-gold">Legacies.</span>
-                </h2>
-              </div>
-              <div className="grid grid-cols-3 gap-6">
-                {stats.map((s) => (
-                  <Stat key={s.label} value={s.value} label={s.label} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <CtaBand buttonLabel="Partner With Us" />
     </>
   );
 }

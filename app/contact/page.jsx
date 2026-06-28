@@ -1,30 +1,29 @@
 import { img, site } from '@/lib/site';
 import { PageHero } from '@/components/ui';
 import ContactForm from '@/components/ContactForm';
-import { Mail, Pin, Globe, Clock, Quote } from '@/components/Icons';
+import { Mail, Pin, Globe } from '@/components/Icons';
 
 export const metadata = {
-  title: 'Contact — Let’s Build What’s Next',
+  title: 'Contact — Get in Touch',
   description:
-    'Whether you are exploring an opportunity, seeking capital or looking for trusted advisory — let’s start a conversation.',
+    'Get in touch with SZ Global Solutions. We are ready to help you move forward.',
 };
 
 const details = [
   { icon: Mail, label: 'Email', value: site.email, href: `mailto:${site.email}` },
-  { icon: Pin, label: 'Office', value: site.address },
+  { icon: Pin, label: 'Location', value: 'Ras Al Khaimah, United Arab Emirates' },
   { icon: Globe, label: 'Website', value: site.website },
-  { icon: Clock, label: 'Hours', value: site.hours },
 ];
 
 export default function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="Get in Touch"
-        title="Let’s Build"
-        accent="What’s Next."
+        eyebrow="GET IN TOUCH"
+        title="Get in"
+        accent="Touch"
         image={img.worldNight}
-        subtitle="Whether you are exploring an opportunity, seeking capital or looking for a trusted advisory partner — let’s start a conversation."
+        subtitle="Tell us about the opportunity, mandate or partnership you have in mind and we will get back to you."
       />
 
       <section className="section">
@@ -33,7 +32,7 @@ export default function ContactPage() {
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 sm:p-10">
             <h2 className="font-display text-2xl font-semibold text-white">Send us a message</h2>
             <p className="mt-2 text-sm text-slate-400">
-              Tell us a little about what you’re working on and we’ll get back to you.
+              Complete the form below and a member of our team will respond shortly.
             </p>
             <div className="mt-8">
               <ContactForm />
@@ -61,14 +60,6 @@ export default function ContactPage() {
                 </div>
               </div>
             ))}
-
-            <div className="relative overflow-hidden rounded-xl border border-gold/20 bg-gradient-to-br from-navy-800 to-navy-900 p-7">
-              <Quote width={32} height={32} className="text-gold/40" />
-              <p className="mt-4 text-base leading-relaxed text-slate-200">
-                Opportunities don’t happen. They are created through insight, relationships and
-                execution. That’s where we come in.
-              </p>
-            </div>
           </div>
         </div>
       </section>

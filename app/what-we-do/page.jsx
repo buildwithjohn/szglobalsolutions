@@ -1,18 +1,18 @@
 import { img } from '@/lib/site';
-import { PageHero, CtaBand, SectionHeading } from '@/components/ui';
+import { PageHero, CtaBand, SectionLabel } from '@/components/ui';
 import { Target, Coins, Users, Check, Building } from '@/components/Icons';
 
 export const metadata = {
   title: 'What We Do — Three Capabilities',
   description:
-    'Deal Origination, Capital Advisory and Transaction Advisory — end-to-end services that help businesses and investors identify opportunities, secure capital and execute transactions with confidence.',
+    'We provide end-to-end advisory services that help businesses and investors identify opportunities, secure capital, and execute transactions with confidence.',
 };
 
 const capabilities = [
   {
     id: 'deal-origination',
     icon: Target,
-    title: 'Deal Origination',
+    title: 'DEAL ORIGINATION',
     image: img.city,
     text: 'We identify proprietary opportunities, assess commercial potential and position them for engagement with the right stakeholders.',
     points: [
@@ -25,7 +25,7 @@ const capabilities = [
   {
     id: 'capital-advisory',
     icon: Coins,
-    title: 'Capital Advisory',
+    title: 'CAPITAL ADVISORY',
     image: img.finance,
     text: 'We help businesses and project sponsors access the right capital to fund growth and execute transactions.',
     points: [
@@ -38,7 +38,7 @@ const capabilities = [
   {
     id: 'transaction-advisory',
     icon: Users,
-    title: 'Transaction Advisory',
+    title: 'TRANSACTION ADVISORY',
     image: img.handshake,
     text: 'We provide commercial guidance throughout the transaction lifecycle to ensure alignment, clarity and successful execution.',
     points: [
@@ -51,29 +51,33 @@ const capabilities = [
 ];
 
 const clients = [
-  { label: 'Project Sponsors', image: img.excavator },
-  { label: 'Investors', image: img.finance },
-  { label: 'Corporates', image: img.boardroom },
-  { label: 'Financial Institutions', image: img.city },
-  { label: 'Governments & Agencies', image: img.worldNight },
+  { label: 'PROJECT SPONSORS', image: img.excavator },
+  { label: 'INVESTORS', image: img.finance },
+  { label: 'CORPORATES', image: img.boardroom },
+  { label: 'FINANCIAL INSTITUTIONS', image: img.city },
+  { label: 'GOVERNMENTS & AGENCIES', image: img.worldNight },
 ];
 
 export default function WhatWeDoPage() {
   return (
     <>
       <PageHero
-        eyebrow="What We Do"
+        eyebrow="WHAT WE DO"
         title="Three Capabilities. One Objective –"
         accent="Successful Transactions."
         image={img.meeting}
-        subtitle="We provide end-to-end advisory services that help businesses and investors identify opportunities, secure capital and execute transactions with confidence. Our capabilities are designed to create clarity, reduce risk and unlock value at every stage of the transaction lifecycle."
+        subtitle="We provide end-to-end advisory services that help businesses and investors identify opportunities, secure capital, and execute transactions with confidence."
       >
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-300">
+          Our capabilities are designed to create clarity, reduce risk, and unlock value at
+          every stage of the transaction lifecycle.
+        </p>
         <div className="mt-8 max-w-md rounded-xl border border-gold/30 bg-navy-900/70 p-6 backdrop-blur">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gold/15 text-gold">
               <Target width={22} height={22} />
             </div>
-            <p className="eyebrow">Our Objective</p>
+            <p className="eyebrow">OUR OBJECTIVE</p>
           </div>
           <p className="mt-4 text-sm leading-relaxed text-slate-300">
             To transform opportunities into executable transactions through structure, capital
@@ -86,7 +90,7 @@ export default function WhatWeDoPage() {
       <section className="section">
         <div className="container-x grid gap-6 lg:grid-cols-3">
           {capabilities.map((c) => (
-            <div key={c.id} id={c.id} className="card scroll-mt-24 overflow-hidden p-0">
+            <div key={c.id} id={c.id} data-reveal className="card scroll-mt-24 overflow-hidden p-0">
               <div className="relative h-40">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={c.image} alt="" className="h-full w-full object-cover" />
@@ -97,7 +101,9 @@ export default function WhatWeDoPage() {
                   <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gold/10 text-gold">
                     <c.icon width={22} height={22} />
                   </div>
-                  <h2 className="font-display text-xl font-semibold text-white">{c.title}</h2>
+                  <h2 className="font-display text-lg font-semibold tracking-wide text-white">
+                    {c.title}
+                  </h2>
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-slate-400">{c.text}</p>
                 <ul className="mt-5 space-y-3">
@@ -117,14 +123,14 @@ export default function WhatWeDoPage() {
       {/* WHO WE WORK WITH */}
       <section className="section border-t border-white/10 bg-navy-900/40">
         <div className="container-x">
-          <SectionHeading
-            eyebrow="Who We Work With"
-            title="Trusted Across the"
-            accent="Transaction Ecosystem"
-          />
+          <SectionLabel>WHO WE WORK WITH</SectionLabel>
           <div className="mt-12 grid gap-4 sm:grid-cols-3 lg:grid-cols-5">
             {clients.map((cl) => (
-              <div key={cl.label} className="group relative h-40 overflow-hidden rounded-xl border border-white/10">
+              <div
+                key={cl.label}
+                data-reveal
+                className="group relative h-40 overflow-hidden rounded-xl border border-white/10"
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={cl.image}
@@ -142,7 +148,12 @@ export default function WhatWeDoPage() {
         </div>
       </section>
 
-      <CtaBand />
+      <CtaBand
+        eyebrow="Let's Build"
+        title="What's Next."
+        text="Whether you are exploring an opportunity, seeking capital or looking for the right partner, we are ready to help you move forward."
+        buttonLabel="Discuss an Opportunity"
+      />
     </>
   );
 }
