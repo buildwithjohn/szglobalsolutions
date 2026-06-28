@@ -4,10 +4,15 @@ import { Arrow } from './Icons';
 // Eyebrow + heading block
 export function SectionHeading({ eyebrow, title, accent, subtitle, center, light }) {
   return (
-    <div className={`${center ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl'}`}>
-      {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+    <div data-reveal className={`${center ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl'}`}>
+      {eyebrow && (
+        <p className="eyebrow">
+          {eyebrow}
+          <span className={`grow-line mt-2 ${center ? 'mx-auto' : ''}`} />
+        </p>
+      )}
       <h2 className={`${eyebrow ? 'mt-3' : ''} heading-lg`}>
-        {title} {accent && <span className="text-gold">{accent}</span>}
+        {title} {accent && <span className="shine-text">{accent}</span>}
       </h2>
       {subtitle && (
         <p className={`mt-4 text-base leading-relaxed ${light ? 'text-slate-300' : 'text-slate-400'}`}>
@@ -31,15 +36,28 @@ export function PageHero({ eyebrow, title, accent, subtitle, image, children }) 
         </div>
       )}
       <div className="container-x relative py-20 sm:py-28">
-        <div className="max-w-3xl animate-fade-up">
-          {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+        <div className="max-w-3xl">
+          {eyebrow && (
+            <p className="eyebrow animate-fade-up">{eyebrow}</p>
+          )}
           <h1 className="mt-4 heading-xl">
-            {title} {accent && <span className="text-gold">{accent}</span>}
+            <span className="line-reveal block">
+              <span style={{ '--line-delay': '120ms' }}>{title}</span>
+            </span>
+            {accent && (
+              <span className="line-reveal block">
+                <span style={{ '--line-delay': '260ms' }}>
+                  <span className="shine-text">{accent}</span>
+                </span>
+              </span>
+            )}
           </h1>
           {subtitle && (
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">{subtitle}</p>
+            <p className="mt-6 max-w-2xl animate-fade-up text-lg leading-relaxed text-slate-300 [animation-delay:420ms]">
+              {subtitle}
+            </p>
           )}
-          {children}
+          <div className="animate-fade-up [animation-delay:560ms]">{children}</div>
         </div>
       </div>
     </section>
@@ -49,7 +67,7 @@ export function PageHero({ eyebrow, title, accent, subtitle, image, children }) 
 // Stat counter block
 export function Stat({ value, label }) {
   return (
-    <div className="text-center sm:text-left">
+    <div data-reveal="zoom" className="text-center sm:text-left">
       <div className="font-display text-4xl font-bold text-gold sm:text-5xl">{value}</div>
       <div className="mt-2 text-sm leading-snug text-slate-400">{label}</div>
     </div>
@@ -67,12 +85,15 @@ export function CtaBand({
   return (
     <section className="section">
       <div className="container-x">
-        <div className="relative overflow-hidden rounded-2xl border border-gold/20 bg-gradient-to-br from-navy-800 to-navy-900 p-10 sm:p-14">
-          <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-gold/10 blur-3xl" />
+        <div
+          data-reveal
+          className="relative overflow-hidden rounded-2xl border border-gold/20 bg-gradient-to-br from-navy-800 to-navy-900 p-10 sm:p-14"
+        >
+          <div className="absolute -right-16 -top-16 h-56 w-56 animate-float rounded-full bg-gold/10 blur-3xl" />
           <div className="relative flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
             <div className="max-w-2xl">
               <h2 className="heading-lg">
-                {eyebrow} <span className="text-gold">{title}</span>
+                {eyebrow} <span className="shine-text">{title}</span>
               </h2>
               <p className="mt-4 text-base leading-relaxed text-slate-300">{text}</p>
             </div>
@@ -102,13 +123,16 @@ export function FeatureCard({ icon: Icon, title, children }) {
 // Image-backed card with overlay caption (used in "Where We Focus" style grids)
 export function ImageCard({ image, icon: Icon, title, children, className = '' }) {
   return (
-    <div className={`group relative overflow-hidden rounded-xl border border-white/10 ${className}`}>
+    <div
+      data-reveal
+      className={`group relative overflow-hidden rounded-xl border border-white/10 transition duration-300 hover:-translate-y-1 hover:border-gold/40 ${className}`}
+    >
       <div className="absolute inset-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={image}
           alt=""
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/70 to-navy-950/20" />
       </div>

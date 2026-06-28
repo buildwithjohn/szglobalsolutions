@@ -58,22 +58,32 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-navy-950/80 to-navy-950" />
         </div>
         <div className="container-x relative grid gap-12 py-20 sm:py-28 lg:grid-cols-[1.6fr_1fr]">
-          <div className="animate-fade-up">
-            <p className="eyebrow">About SZ Global Solutions</p>
-            <h1 className="mt-4 heading-xl">Who We Are</h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-200">
+          <div>
+            <p className="eyebrow animate-fade-up">About SZ Global Solutions</p>
+            <h1 className="mt-4 font-display text-5xl font-bold leading-[1.05] text-white sm:text-6xl lg:text-7xl">
+              <span className="line-reveal block">
+                <span style={{ '--line-delay': '120ms' }}>
+                  Who We <span className="shine-text">Are</span>
+                </span>
+              </span>
+            </h1>
+            <p className="mt-6 max-w-xl animate-fade-up text-lg leading-relaxed text-slate-200 [animation-delay:340ms]">
               SZ Global Solutions is a UK and UAE-based origination and transaction advisory
               firm operating across Africa, the GCC and international markets.
             </p>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-slate-400">
+            <p className="mt-4 max-w-xl animate-fade-up text-sm leading-relaxed text-slate-400 [animation-delay:460ms]">
               We specialise in identifying high-value opportunities, developing transaction
               strategies and connecting businesses with capital, strategic partners and
               international markets to turn opportunities into measurable outcomes.
             </p>
             <div className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-4">
-              {pillars.map((p) => (
-                <div key={p.label} className="flex flex-col items-start gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gold/10 text-gold">
+              {pillars.map((p, i) => (
+                <div
+                  key={p.label}
+                  className="group flex animate-fade-up flex-col items-start gap-3"
+                  style={{ animationDelay: `${560 + i * 90}ms` }}
+                >
+                  <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gold/10 text-gold transition group-hover:-translate-y-1 group-hover:bg-gold group-hover:text-navy-950">
                     <p.icon width={22} height={22} />
                   </div>
                   <span className="text-sm font-medium text-slate-300">{p.label}</span>

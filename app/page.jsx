@@ -72,41 +72,59 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={img.heroPort} alt="" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-navy-950/40" />
+          <img
+            src={img.heroPort}
+            alt=""
+            className="h-full w-full scale-105 animate-fade-in object-cover [animation-duration:1.4s]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-950/45" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/30 to-navy-950/60" />
+          {/* Extra darkening on small screens so text never sits on bare image */}
+          <div className="absolute inset-0 bg-navy-950/45 sm:bg-transparent" />
         </div>
 
-        <div className="container-x relative grid items-center gap-10 py-24 sm:py-32 lg:grid-cols-[1.5fr_1fr]">
-          <div className="animate-fade-up">
-            <h1 className="font-display text-5xl font-extrabold leading-[1.02] text-white sm:text-6xl lg:text-7xl">
-              ORIGINATION.<br />
-              STRUCTURING.<br />
-              <span className="text-gold">EXECUTION.</span>
+        <div className="container-x relative grid items-center gap-10 py-20 sm:py-28 lg:grid-cols-[1.5fr_1fr] lg:py-32">
+          <div>
+            <h1 className="font-display text-[2.3rem] font-extrabold leading-[1.06] tracking-tight text-white xs:text-5xl sm:text-6xl lg:text-7xl">
+              <span className="line-reveal block">
+                <span style={{ '--line-delay': '100ms' }}>ORIGINATION.</span>
+              </span>
+              <span className="line-reveal block">
+                <span style={{ '--line-delay': '230ms' }}>STRUCTURING.</span>
+              </span>
+              <span className="line-reveal block">
+                <span style={{ '--line-delay': '360ms' }}>
+                  <span className="shine-text">EXECUTION.</span>
+                </span>
+              </span>
             </h1>
-            <p className="mt-7 max-w-xl text-lg font-medium leading-relaxed text-slate-200">
+            <p
+              className="mt-6 max-w-xl animate-fade-up text-base font-medium leading-relaxed text-slate-200 [animation-delay:520ms] sm:text-lg"
+            >
               Transforming opportunities into executable transactions across Africa, the GCC
               and international markets.
             </p>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-slate-400">
+            <p
+              className="mt-4 max-w-xl animate-fade-up text-sm leading-relaxed text-slate-300 [animation-delay:640ms]"
+            >
               SZ Global Solutions is a UK and UAE-based origination and transaction advisory
               firm. We work with businesses, investors and institutions to identify
               opportunities, structure commercially robust transactions and connect the
               counterparties required to bring them to execution.
             </p>
-            <div className="mt-9 flex flex-wrap gap-4">
-              <Link href="/contact" className="btn-primary">
+            <div className="mt-9 flex flex-col gap-3 animate-fade-up [animation-delay:760ms] sm:flex-row sm:flex-wrap sm:gap-4">
+              <Link href="/contact" className="btn-primary justify-center sm:justify-start">
                 Discuss an Opportunity <Arrow width={16} height={16} />
               </Link>
-              <Link href="/our-approach" className="btn-ghost">
+              <Link href="/our-approach" className="btn-ghost justify-center sm:justify-start">
                 Explore Our Approach <Arrow width={16} height={16} />
               </Link>
             </div>
           </div>
 
-          <div className="animate-fade-up lg:justify-self-end">
-            <div className="max-w-sm rounded-xl border border-gold/30 bg-navy-900/80 p-7 backdrop-blur">
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gold/15 text-gold">
+          <div className="animate-fade-up [animation-delay:700ms] lg:justify-self-end">
+            <div className="group max-w-sm animate-float rounded-xl border border-gold/30 bg-navy-900/80 p-7 backdrop-blur transition hover:border-gold/60">
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gold/15 text-gold [animation:pulse-ring_2.6s_ease-out_infinite]">
                 <Globe width={26} height={26} />
               </div>
               <h3 className="mt-5 font-display text-lg font-semibold text-gold">

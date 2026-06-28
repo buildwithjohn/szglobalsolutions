@@ -2,6 +2,7 @@ import './globals.css';
 import { Inter, Sora } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ScrollAnimator from '@/components/ScrollAnimator';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -48,6 +49,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${sora.variable}`}>
       <body>
+        <ScrollAnimator />
         <Navbar />
         <main>{children}</main>
         <Footer />

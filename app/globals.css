@@ -40,7 +40,7 @@ body {
   }
 
   .card {
-    @apply rounded-xl border border-white/10 bg-white/[0.03] p-6 transition duration-300 hover:border-gold/40 hover:bg-white/[0.05];
+    @apply rounded-xl border border-white/10 bg-white/[0.03] p-6 transition duration-300 hover:-translate-y-1 hover:border-gold/40 hover:bg-white/[0.05] hover:shadow-[0_20px_40px_-24px_rgba(0,0,0,0.8)];
   }
 
   .heading-xl {
@@ -54,6 +54,105 @@ body {
   .section {
     @apply py-16 sm:py-24;
   }
+}
+
+/* ----------------------------------------------------------------------------
+   Motion system
+   ---------------------------------------------------------------------------- */
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes line-rise {
+  from { opacity: 0; transform: translateY(110%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(232, 163, 61, 0.35); }
+  70%  { box-shadow: 0 0 0 14px rgba(232, 163, 61, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(232, 163, 61, 0); }
+}
+
+/* Scroll-reveal: hidden until ScrollAnimator marks the element visible.
+   Gated on .anim-ready so there is no flash before JS runs (and no hiding
+   for users without JS). */
+.anim-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.anim-ready [data-reveal='left']  { transform: translateX(-28px); }
+.anim-ready [data-reveal='right'] { transform: translateX(28px); }
+.anim-ready [data-reveal='zoom']  { transform: scale(0.94); }
+[data-reveal].is-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* On-load entrance helpers (above-the-fold heroes) */
+.animate-fade-up { animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-fade-in { animation: fade-in 0.9s ease-out both; }
+.animate-float   { animation: float-y 6s ease-in-out infinite; }
+
+/* Hero heading: each line rises from behind a clip mask, staggered. */
+.line-reveal { overflow: hidden; }
+.line-reveal > span {
+  display: inline-block;
+  animation: line-rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--line-delay, 0ms);
+}
+
+/* Animated golden sheen for accent words. */
+.shine-text {
+  background: linear-gradient(
+    100deg,
+    #e8a33d 0%,
+    #f7d488 45%,
+    #e8a33d 60%,
+    #e8a33d 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 4.5s linear infinite;
+}
+
+/* Animated underline used under eyebrows / accents. */
+.grow-line {
+  display: block;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, #e8a33d, transparent);
+  transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+}
+[data-reveal].is-visible .grow-line,
+.is-visible.grow-line { width: 56px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .anim-ready [data-reveal] { opacity: 1; transform: none; }
 }
 
 /* Subtle scrollbar to match the dark theme */
