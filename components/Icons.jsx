@@ -108,6 +108,13 @@ export const Compass = (p) => (
   </svg>
 );
 
+export const Eye = (p) => (
+  <svg {...base} {...p}>
+    <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z" />
+    <circle cx="12" cy="12" r="3.2" />
+  </svg>
+);
+
 export const Flame = (p) => (
   <svg {...base} {...p}>
     <path d="M12 3c1 3 4 4.2 4 7.5A4 4 0 0 1 12 14a4 4 0 0 1-4-3.5C8 8.7 9.2 8 9.5 6 11 7 11 8.5 11 8.5 11.7 7 12 5 12 3Z" />

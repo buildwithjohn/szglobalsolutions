@@ -129,6 +129,7 @@ const COMMODITIES = [
     name: 'GOLD',
     subtitle: 'Available by Mandate',
     icon: Coins,
+    image: img.gold,
     gradient: 'from-amber-200/45 via-amber-500/20 to-amber-800/10',
     card: 'by Mandate',
     tags: ['Bullion', 'Refiners', 'Institutions'],
@@ -141,6 +142,7 @@ const COMMODITIES = [
     name: 'COPPER',
     subtitle: 'Available by Mandate',
     icon: Layers,
+    image: img.copper,
     gradient: 'from-orange-300/40 via-orange-600/20 to-amber-900/10',
     card: 'by Mandate',
     tags: ['Cathodes', 'Concentrate', 'Industrial'],
@@ -153,6 +155,7 @@ const COMMODITIES = [
     name: 'LITHIUM',
     subtitle: 'Available by Mandate',
     icon: Flame,
+    image: img.lithium,
     gradient: 'from-slate-200/40 via-slate-400/15 to-slate-700/10',
     card: 'by Mandate',
     tags: ['Battery', 'EV Supply', 'Industrial'],
@@ -165,6 +168,7 @@ const COMMODITIES = [
     name: 'COBALT',
     subtitle: 'Available by Mandate',
     icon: Shield,
+    image: img.cobalt,
     gradient: 'from-sky-400/40 via-blue-600/20 to-blue-900/15',
     card: 'by Mandate',
     tags: ['Battery', 'Alloys', 'Industrial'],
@@ -500,15 +504,24 @@ export default function EnergyClient() {
                     type="button"
                     onClick={() => setActive(c)}
                     data-reveal
-                    className="group overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] text-left transition duration-300 hover:-translate-y-1 hover:border-gold/50"
+                    className="group relative h-64 overflow-hidden rounded-2xl border border-white/10 text-left transition duration-300 hover:-translate-y-1.5 hover:border-gold/60 hover:shadow-[0_24px_50px_-20px_rgba(0,0,0,0.9)]"
                   >
-                    <div className={`relative flex h-28 items-center justify-center overflow-hidden bg-gradient-to-br ${c.gradient}`}>
-                      <c.icon width={34} height={34} className="text-white/80 transition duration-500 group-hover:scale-110" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent" />
-                    </div>
-                    <div className="p-4">
-                      <h4 className="font-display text-sm font-semibold tracking-wide text-gold">{c.name}</h4>
-                      <p className="mt-1 text-[11px] text-slate-500">{c.card}</p>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={c.image}
+                      alt={c.name}
+                      className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-110"
+                    />
+                    {/* subtle bottom-only gradient so the image stays vivid */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/35 to-transparent" />
+                    <div className="absolute inset-x-4 bottom-4">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gold text-navy-950 shadow-lg">
+                        <c.icon width={20} height={20} />
+                      </div>
+                      <h4 className="mt-3 font-display text-lg font-bold tracking-wide text-gold drop-shadow">
+                        {c.name}
+                      </h4>
+                      <p className="text-xs text-slate-200/90">{c.card}</p>
                     </div>
                   </button>
                 ))}

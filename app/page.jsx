@@ -213,7 +213,7 @@ export default function HomePage() {
                     alt=""
                     className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/70 to-navy-950/20" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/30 to-transparent" />
                 </div>
                 <div className="relative flex h-full flex-col justify-end p-6">
                   <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-gold text-navy-950">
@@ -226,6 +226,44 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* GLOBAL REACH — Dubai lights + breathing globe */}
+      <section className="section">
+        <div className="container-x">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={img.dubai} alt="" className="absolute inset-0 h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/70 to-navy-950/20" />
+            <div className="relative grid items-center gap-8 p-10 sm:p-14 lg:grid-cols-[1.4fr_1fr]">
+              <div data-reveal>
+                <p className="eyebrow">Global Reach</p>
+                <h2 className="mt-3 heading-lg">
+                  Connecting Markets <span className="shine-text">Across the World.</span>
+                </h2>
+                <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-300">
+                  From the UK and the UAE to Africa, the GCC and international markets — we
+                  originate, structure and execute opportunities wherever value can be created.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {['United Kingdom', 'United Arab Emirates', 'Africa', 'GCC', 'International'].map((r) => (
+                    <span key={r} className="rounded-full border border-gold/30 px-3 py-1 text-xs font-medium text-slate-200">
+                      {r}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="hidden justify-center lg:flex">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={img.globe}
+                  alt=""
+                  className="animate-breathe h-56 w-56 rounded-full object-cover shadow-[0_0_60px_-10px_rgba(232,163,61,0.4)] ring-1 ring-gold/30"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

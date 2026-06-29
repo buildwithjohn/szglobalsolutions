@@ -145,7 +145,7 @@ export function ImageCard({ image, icon: Icon, title, children, className = '' }
           alt=""
           className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/70 to-navy-950/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/30 to-transparent" />
       </div>
       <div className="relative flex h-full flex-col justify-end p-6">
         {Icon && (

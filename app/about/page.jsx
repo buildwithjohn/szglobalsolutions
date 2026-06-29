@@ -10,6 +10,7 @@ import {
   Chart,
   Diamond,
   Pin,
+  Eye,
 } from '@/components/Icons';
 
 export const metadata = {
@@ -26,11 +27,11 @@ const pillars = [
 ];
 
 const operate = [
-  { region: 'UNITED KINGDOM', city: 'London', image: img.city },
-  { region: 'UNITED ARAB EMIRATES', city: 'Dubai', image: img.dubai },
-  { region: 'AFRICA', city: 'Across key markets', image: img.coast },
-  { region: 'GCC', city: 'Strategic presence', image: img.finance },
-  { region: 'INTERNATIONAL MARKETS', city: 'Global reach', image: img.worldNight },
+  'United Kingdom',
+  'United Arab Emirates',
+  'Africa',
+  'GCC',
+  'International Markets',
 ];
 
 const whyWork = [
@@ -44,14 +45,9 @@ const whyWork = [
 export default function AboutPage() {
   return (
     <>
-      {/* HERO + WHERE WE OPERATE */}
+      {/* HERO */}
       <section className="relative overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={img.worldNight} alt="" className="h-full w-full object-cover opacity-25" />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-950/80 to-navy-950" />
-        </div>
-        <div className="container-x relative grid gap-12 py-20 sm:py-28 lg:grid-cols-[1.6fr_1fr]">
+        <div className="container-x relative grid items-center gap-10 py-16 sm:py-24 lg:grid-cols-[1fr_1.05fr]">
           <div>
             <p className="eyebrow animate-fade-up">ABOUT SZ GLOBAL SOLUTIONS</p>
             <h1 className="mt-4 font-display text-5xl font-bold leading-[1.05] text-white sm:text-6xl lg:text-7xl">
@@ -86,48 +82,45 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="animate-fade-up rounded-xl border border-white/10 bg-navy-900/70 p-6 backdrop-blur">
-            <p className="eyebrow">WHERE WE OPERATE</p>
-            <ul className="mt-5 space-y-4">
-              {operate.map((o) => (
-                <li key={o.region} className="flex items-center gap-4">
-                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-white/10">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={o.image} alt="" className="h-full w-full object-cover" />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-1.5 text-sm font-semibold text-white">
-                      <Pin width={13} height={13} className="text-gold" />
-                      {o.region}
-                    </div>
-                    <div className="text-xs text-slate-400">{o.city}</div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+          {/* Vivid Dubai skyline + animated gold connection arcs */}
+          <div className="animate-fade-up [animation-delay:300ms]">
+            <div className="group relative overflow-hidden rounded-2xl border border-white/10">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={img.dubai}
+                alt="Global markets"
+                className="h-[300px] w-full object-cover transition duration-[1.2s] group-hover:scale-105 sm:h-[420px]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent" />
+              <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 400 300" fill="none" preserveAspectRatio="none">
+                <path d="M40 210 C140 90 260 90 360 60" stroke="#e8a33d" strokeWidth="1.2" strokeDasharray="4 6" opacity="0.7" className="animate-fade-in [animation-duration:2s]" />
+                <path d="M60 250 C160 160 280 150 370 120" stroke="#f2b955" strokeWidth="1" strokeDasharray="3 7" opacity="0.5" className="animate-fade-in [animation-duration:2.6s]" />
+                <circle cx="40" cy="210" r="3" fill="#e8a33d" className="animate-float" />
+                <circle cx="360" cy="60" r="3" fill="#e8a33d" className="animate-float" />
+              </svg>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* MISSION & VISION */}
-      <section className="section">
-        <div className="container-x grid gap-6 lg:grid-cols-2">
+      {/* MISSION · VISION · WHERE WE OPERATE */}
+      <section className="section border-b border-white/10">
+        <div className="container-x grid gap-6 lg:grid-cols-3">
           {[
             {
               tag: 'OUR MISSION',
-              image: img.mountain,
+              icon: Target,
               text: 'To originate opportunities, structure commercially robust transactions and connect capital, counterparties and markets to unlock sustainable growth.',
             },
             {
               tag: 'OUR VISION',
-              image: img.lighthouse,
+              icon: Eye,
               text: 'To be a trusted cross-border origination and transaction advisory firm connecting Africa with global markets through disciplined execution, strategic relationships and long-term value creation.',
             },
           ].map((c) => (
-            <div key={c.tag} className="card flex items-start gap-5">
-              <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border border-gold/30">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={c.image} alt="" className="h-full w-full object-cover" />
+            <div key={c.tag} data-reveal className="card flex items-start gap-5">
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-gold/30 bg-gold/10 text-gold">
+                <c.icon width={28} height={28} />
               </div>
               <div>
                 <p className="eyebrow">{c.tag}</p>
@@ -135,6 +128,29 @@ export default function AboutPage() {
               </div>
             </div>
           ))}
+
+          {/* WHERE WE OPERATE — globe + region list */}
+          <div data-reveal className="card relative overflow-hidden">
+            <p className="eyebrow">WHERE WE OPERATE</p>
+            <p className="mt-3 max-w-[16rem] text-sm leading-relaxed text-slate-400">
+              Our network spans key markets across Africa, the GCC, the UK and international
+              jurisdictions.
+            </p>
+            <ul className="mt-4 space-y-2">
+              {operate.map((region) => (
+                <li key={region} className="flex items-center gap-2 text-sm font-medium text-white">
+                  <Pin width={14} height={14} className="text-gold" />
+                  {region}
+                </li>
+              ))}
+            </ul>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={img.globe}
+              alt=""
+              className="animate-breathe pointer-events-none absolute -bottom-6 -right-8 h-44 w-44 rounded-full object-cover opacity-70"
+            />
+          </div>
         </div>
       </section>
 

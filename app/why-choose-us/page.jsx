@@ -104,7 +104,7 @@ export default function WhyChooseUsPage() {
                     alt=""
                     className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/70 to-navy-950/20" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/30 to-transparent" />
                 </div>
                 <div className="relative flex h-full flex-col justify-end p-5">
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-gold text-navy-950">
