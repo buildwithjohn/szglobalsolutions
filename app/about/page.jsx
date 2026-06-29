@@ -87,17 +87,11 @@ export default function AboutPage() {
             <div className="group relative overflow-hidden rounded-2xl border border-white/10">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={img.dubai}
-                alt="Global markets"
+                src={img.aboutHero}
+                alt="Connecting global markets"
                 className="h-[300px] w-full object-cover transition duration-[1.2s] group-hover:scale-105 sm:h-[420px]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent" />
-              <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 400 300" fill="none" preserveAspectRatio="none">
-                <path d="M40 210 C140 90 260 90 360 60" stroke="#e8a33d" strokeWidth="1.2" strokeDasharray="4 6" opacity="0.7" className="animate-fade-in [animation-duration:2s]" />
-                <path d="M60 250 C160 160 280 150 370 120" stroke="#f2b955" strokeWidth="1" strokeDasharray="3 7" opacity="0.5" className="animate-fade-in [animation-duration:2.6s]" />
-                <circle cx="40" cy="210" r="3" fill="#e8a33d" className="animate-float" />
-                <circle cx="360" cy="60" r="3" fill="#e8a33d" className="animate-float" />
-              </svg>
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/40 via-transparent to-transparent" />
             </div>
           </div>
         </div>
@@ -146,9 +140,9 @@ export default function AboutPage() {
             </ul>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={img.globe}
+              src={img.aboutGlobe}
               alt=""
-              className="animate-breathe pointer-events-none absolute -bottom-6 -right-8 h-44 w-44 rounded-full object-cover opacity-70"
+              className="animate-breathe pointer-events-none absolute -bottom-10 -right-12 h-56 w-56 object-contain opacity-90"
             />
           </div>
         </div>
