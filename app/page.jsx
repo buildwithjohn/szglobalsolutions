@@ -137,9 +137,9 @@ export default function HomePage() {
           <div className="flex animate-fade-up justify-center [animation-delay:700ms] lg:justify-self-end">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/logo.png"
+              src="/images/hero-logo.jpg"
               alt="SZ Global Solutions"
-              className="animate-breathe w-full max-w-sm drop-shadow-[0_18px_40px_rgba(0,0,0,0.55)] lg:max-w-md"
+              className="animate-breathe w-full max-w-md rounded-2xl border border-white/10 shadow-[0_24px_60px_-15px_rgba(0,0,0,0.7)]"
             />
           </div>
         </div>

@@ -8,7 +8,7 @@ import Image from 'next/image';
 // Pass `showName` to render the swoosh mark next to a clean "SZ Global Solutions"
 // wordmark (used in the footer).
 const SOURCES = {
-  mark: { src: '/logo-mark.png', w: 194, h: 151 },
+  mark: { src: '/logo-mark.png', w: 382, h: 360 },
   dark: { src: '/logo-dark.png', w: 378, h: 246 },
   light: { src: '/logo.png', w: 378, h: 246 },
 };
