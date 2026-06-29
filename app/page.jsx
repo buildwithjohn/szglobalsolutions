@@ -123,6 +123,13 @@ export default function HomePage() {
             <img src={img.heroPort} alt="" className="absolute inset-0 h-full w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-transparent to-transparent lg:w-1/3" />
             <div className="absolute inset-0 bg-gradient-to-t from-navy-950/50 to-transparent" />
+            {/* Breathing logo */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/hero-logo.jpg"
+              alt="SZ Global Solutions"
+              className="animate-breathe absolute left-5 top-5 w-44 rounded-lg border border-white/10 shadow-2xl sm:w-52"
+            />
             <div className="absolute bottom-5 right-5 max-w-[20rem] animate-fade-up rounded-xl border border-gold/40 bg-navy-900/85 p-5 backdrop-blur [animation-delay:700ms]">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gold/15 text-gold [animation:pulse-ring_2.6s_ease-out_infinite]">
