@@ -88,11 +88,19 @@ function HorizontalCard({ icon: Icon, title, image, text }) {
 export default function HomePage() {
   return (
     <>
-      {/* HERO — text left, image right with Cross-Border card */}
+      {/* HERO — text + breathing logo over the port image */}
       <section className="relative overflow-hidden border-b border-white/10">
-        <div className="grid items-stretch lg:grid-cols-2">
-          <div className="px-5 py-14 sm:px-8 sm:py-16 lg:py-24 lg:pl-[max(2rem,calc((100vw-1200px)/2+1rem))] lg:pr-12">
-            <h1 className="font-display text-[2.4rem] font-extrabold leading-[1.04] tracking-tight text-white xs:text-5xl sm:text-6xl">
+        <div className="absolute inset-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={img.heroPort} alt="" className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-950/45" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/30 to-navy-950/60" />
+          <div className="absolute inset-0 bg-navy-950/45 sm:bg-transparent" />
+        </div>
+
+        <div className="container-x relative grid items-center gap-10 py-20 sm:py-28 lg:grid-cols-[1.5fr_1fr]">
+          <div>
+            <h1 className="font-display text-[2.4rem] font-extrabold leading-[1.04] tracking-tight text-white xs:text-5xl sm:text-6xl lg:text-7xl">
               <span className="line-reveal block"><span style={{ '--line-delay': '100ms' }}>ORIGINATION.</span></span>
               <span className="line-reveal block"><span style={{ '--line-delay': '230ms' }}>STRUCTURING.</span></span>
               <span className="line-reveal block"><span style={{ '--line-delay': '360ms' }}><span className="shine-text">EXECUTION.</span></span></span>
@@ -101,7 +109,7 @@ export default function HomePage() {
               Transforming opportunities into executable transactions across Africa, the GCC
               and international markets.
             </p>
-            <p className="mt-4 max-w-xl animate-fade-up text-sm leading-relaxed text-slate-400 [animation-delay:640ms]">
+            <p className="mt-4 max-w-xl animate-fade-up text-sm leading-relaxed text-slate-300 [animation-delay:640ms]">
               SZ Global Solutions is a UK and UAE-based origination and transaction advisory
               firm. We work with businesses, investors and institutions to identify
               opportunities, structure commercially robust transactions and connect the
@@ -115,33 +123,32 @@ export default function HomePage() {
                 Explore Our Approach <Arrow width={16} height={16} />
               </Link>
             </div>
+
+            {/* Cross-Border Expertise — clean callout under the CTAs */}
+            <div className="mt-8 inline-flex max-w-md animate-fade-up items-center gap-3 rounded-xl border border-gold/30 bg-navy-900/60 px-4 py-3 backdrop-blur [animation-delay:880ms]">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gold/15 text-gold [animation:pulse-ring_2.6s_ease-out_infinite]">
+                <Globe width={20} height={20} />
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gold">
+                  Cross-Border Expertise
+                </p>
+                <p className="mt-0.5 text-xs leading-relaxed text-slate-300">
+                  Operating from the UK and UAE with deep networks across Africa and global
+                  markets.
+                </p>
+              </div>
+            </div>
           </div>
 
-          {/* Full-bleed hero image + Cross-Border card */}
-          <div className="relative min-h-[320px] lg:min-h-full">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={img.heroPort} alt="" className="absolute inset-0 h-full w-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-transparent to-transparent lg:w-1/3" />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy-950/50 to-transparent" />
-            {/* Breathing logo */}
+          {/* Breathing logo */}
+          <div className="flex animate-fade-up justify-center [animation-delay:700ms] lg:justify-self-end">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/hero-logo.jpg"
               alt="SZ Global Solutions"
-              className="animate-breathe absolute left-5 top-5 w-44 rounded-lg border border-white/10 shadow-2xl sm:w-52"
+              className="animate-breathe w-full max-w-sm rounded-2xl border border-white/10 shadow-[0_18px_50px_rgba(0,0,0,0.6)] lg:max-w-md"
             />
-            <div className="absolute bottom-5 right-5 max-w-[20rem] animate-fade-up rounded-xl border border-gold/40 bg-navy-900/85 p-5 backdrop-blur [animation-delay:700ms]">
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gold/15 text-gold [animation:pulse-ring_2.6s_ease-out_infinite]">
-                  <Globe width={20} height={20} />
-                </div>
-                <h3 className="font-display text-base font-semibold text-gold">CROSS-BORDER EXPERTISE</h3>
-              </div>
-              <p className="mt-3 text-sm leading-relaxed text-slate-300">
-                Operating from the UK and UAE with deep networks across Africa and global
-                markets.
-              </p>
-            </div>
           </div>
         </div>
       </section>
