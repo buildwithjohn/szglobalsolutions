@@ -12,6 +12,7 @@ import {
   Layers,
   Flame,
   Leaf,
+  Building,
 } from '@/components/Icons';
 
 const whatWeDo = [
@@ -52,7 +53,7 @@ const focus = [
     text: 'Developing supply corridors, strategic relationships and downstream commercial opportunities across international energy markets.',
   },
   {
-    icon: Coins,
+    icon: Building,
     title: 'CAPITAL ADVISORY',
     image: img.excavator,
     text: 'Supporting businesses and projects across mining, infrastructure, real estate, technology and industrial sectors, investor engagement and transaction execution.',
@@ -65,49 +66,48 @@ const focus = [
   },
 ];
 
+// Horizontal image+content card used by "What We Do" and "Where We Focus".
+function HorizontalCard({ icon: Icon, title, image, text }) {
+  return (
+    <div data-reveal className="card group flex flex-col overflow-hidden p-0 sm:flex-row">
+      <div className="relative h-40 overflow-hidden sm:h-auto sm:w-[38%]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={image} alt="" className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
+      </div>
+      <div className="flex flex-1 items-start gap-4 p-6">
+        <Icon width={34} height={34} className="mt-1 shrink-0 text-gold" />
+        <div>
+          <h3 className="font-display text-base font-bold tracking-wide text-gold">{title}</h3>
+          <p className="mt-2 text-sm leading-relaxed text-slate-400">{text}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function HomePage() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={img.heroPort}
-            alt=""
-            className="h-full w-full scale-105 animate-fade-in object-cover [animation-duration:1.4s]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-950/45" />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/30 to-navy-950/60" />
-          <div className="absolute inset-0 bg-navy-950/45 sm:bg-transparent" />
-        </div>
-
-        <div className="container-x relative grid items-center gap-10 py-20 sm:py-28 lg:grid-cols-[1.5fr_1fr] lg:py-32">
-          <div>
-            <h1 className="font-display text-[2.3rem] font-extrabold leading-[1.06] tracking-tight text-white xs:text-5xl sm:text-6xl lg:text-7xl">
-              <span className="line-reveal block">
-                <span style={{ '--line-delay': '100ms' }}>ORIGINATION.</span>
-              </span>
-              <span className="line-reveal block">
-                <span style={{ '--line-delay': '230ms' }}>STRUCTURING.</span>
-              </span>
-              <span className="line-reveal block">
-                <span style={{ '--line-delay': '360ms' }}>
-                  <span className="shine-text">EXECUTION.</span>
-                </span>
-              </span>
+      {/* HERO — text left, image right with Cross-Border card */}
+      <section className="relative overflow-hidden border-b border-white/10">
+        <div className="grid items-stretch lg:grid-cols-2">
+          <div className="px-5 py-14 sm:px-8 sm:py-16 lg:py-24 lg:pl-[max(2rem,calc((100vw-1200px)/2+1rem))] lg:pr-12">
+            <h1 className="font-display text-[2.4rem] font-extrabold leading-[1.04] tracking-tight text-white xs:text-5xl sm:text-6xl">
+              <span className="line-reveal block"><span style={{ '--line-delay': '100ms' }}>ORIGINATION.</span></span>
+              <span className="line-reveal block"><span style={{ '--line-delay': '230ms' }}>STRUCTURING.</span></span>
+              <span className="line-reveal block"><span style={{ '--line-delay': '360ms' }}><span className="shine-text">EXECUTION.</span></span></span>
             </h1>
-            <p className="mt-6 max-w-xl animate-fade-up text-base font-medium leading-relaxed text-slate-200 [animation-delay:520ms] sm:text-lg">
+            <p className="mt-6 max-w-xl animate-fade-up text-lg font-medium leading-relaxed text-slate-200 [animation-delay:520ms]">
               Transforming opportunities into executable transactions across Africa, the GCC
               and international markets.
             </p>
-            <p className="mt-4 max-w-xl animate-fade-up text-sm leading-relaxed text-slate-300 [animation-delay:640ms]">
+            <p className="mt-4 max-w-xl animate-fade-up text-sm leading-relaxed text-slate-400 [animation-delay:640ms]">
               SZ Global Solutions is a UK and UAE-based origination and transaction advisory
               firm. We work with businesses, investors and institutions to identify
               opportunities, structure commercially robust transactions and connect the
               counterparties required to bring them to execution.
             </p>
-            <div className="mt-9 flex flex-col gap-3 animate-fade-up [animation-delay:760ms] sm:flex-row sm:flex-wrap sm:gap-4">
+            <div className="mt-8 flex flex-col gap-3 animate-fade-up [animation-delay:760ms] sm:flex-row sm:flex-wrap sm:gap-4">
               <Link href="/contact" className="btn-primary justify-center sm:justify-start">
                 Discuss an Opportunity <Arrow width={16} height={16} />
               </Link>
@@ -115,32 +115,26 @@ export default function HomePage() {
                 Explore Our Approach <Arrow width={16} height={16} />
               </Link>
             </div>
-
-            {/* Cross-Border Expertise — relocated here */}
-            <div className="mt-8 inline-flex max-w-md animate-fade-up items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 [animation-delay:880ms]">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gold/15 text-gold">
-                <Globe width={20} height={20} />
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-gold">
-                  Cross-Border Expertise
-                </p>
-                <p className="mt-0.5 text-xs leading-relaxed text-slate-400">
-                  Operating from the UK and UAE with deep networks across Africa and global
-                  markets.
-                </p>
-              </div>
-            </div>
           </div>
 
-          {/* Animated official logo */}
-          <div className="flex animate-fade-up justify-center [animation-delay:700ms] lg:justify-self-end">
+          {/* Full-bleed hero image + Cross-Border card */}
+          <div className="relative min-h-[320px] lg:min-h-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/hero-logo.jpg"
-              alt="SZ Global Solutions"
-              className="animate-breathe w-full max-w-md rounded-2xl border border-white/10 shadow-[0_24px_60px_-15px_rgba(0,0,0,0.7)]"
-            />
+            <img src={img.heroPort} alt="" className="absolute inset-0 h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-transparent to-transparent lg:w-1/3" />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy-950/50 to-transparent" />
+            <div className="absolute bottom-5 right-5 max-w-[20rem] animate-fade-up rounded-xl border border-gold/40 bg-navy-900/85 p-5 backdrop-blur [animation-delay:700ms]">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gold/15 text-gold [animation:pulse-ring_2.6s_ease-out_infinite]">
+                  <Globe width={20} height={20} />
+                </div>
+                <h3 className="font-display text-base font-semibold text-gold">CROSS-BORDER EXPERTISE</h3>
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                Operating from the UK and UAE with deep networks across Africa and global
+                markets.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -149,24 +143,9 @@ export default function HomePage() {
       <section className="section">
         <div className="container-x">
           <SectionLabel center>WHAT WE DO</SectionLabel>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {whatWeDo.map((s) => (
-              <div key={s.title} className="card overflow-hidden p-0">
-                <div className="relative h-44">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={s.image} alt="" className="h-full w-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900 to-transparent" />
-                  <div className="absolute bottom-4 left-4 flex h-11 w-11 items-center justify-center rounded-lg bg-gold text-navy-950">
-                    <s.icon width={22} height={22} />
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-display text-base font-semibold tracking-wide text-white">
-                    {s.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-400">{s.text}</p>
-                </div>
-              </div>
+              <HorizontalCard key={s.title} {...s} />
             ))}
           </div>
         </div>
@@ -176,21 +155,25 @@ export default function HomePage() {
       <section className="section border-y border-white/10 bg-navy-900/40">
         <div className="container-x">
           <SectionLabel center>OUR TRANSACTION METHOD</SectionLabel>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {method.map((step) => (
-              <div key={step.n} className="card relative">
-                <span className="absolute right-5 top-5 font-display text-3xl font-bold text-white/5">
-                  {step.n}
-                </span>
-                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gold/10 text-gold">
-                  <step.icon width={22} height={22} />
+          <div className="mt-12 rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:p-10">
+            <div className="grid gap-x-4 gap-y-10 sm:grid-cols-2 lg:grid-cols-6">
+              {method.map((step, i) => (
+                <div key={step.n} data-reveal className="relative">
+                  <div className="flex items-center">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full border border-gold/40 text-gold">
+                      <step.icon width={26} height={26} />
+                    </div>
+                    {i < method.length - 1 && (
+                      <Arrow width={22} height={22} className="ml-auto hidden text-gold/50 lg:block" />
+                    )}
+                  </div>
+                  <h3 className="mt-4 font-display text-sm font-semibold tracking-wide text-white">
+                    <span className="text-gold">{step.n}.</span> {step.title}
+                  </h3>
+                  <p className="mt-2 text-xs leading-relaxed text-slate-400">{step.text}</p>
                 </div>
-                <h3 className="mt-5 font-display text-base font-semibold tracking-wide text-white">
-                  <span className="text-gold">{step.n}.</span> {step.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-400">{step.text}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -198,33 +181,10 @@ export default function HomePage() {
       {/* WHERE WE FOCUS */}
       <section className="section">
         <div className="container-x">
-          <SectionLabel>WHERE WE FOCUS</SectionLabel>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <SectionLabel center>WHERE WE FOCUS</SectionLabel>
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {focus.map((f) => (
-              <div
-                key={f.title}
-                data-reveal
-                className="group relative min-h-[320px] overflow-hidden rounded-xl border border-white/10 transition duration-300 hover:-translate-y-1 hover:border-gold/40"
-              >
-                <div className="absolute inset-0">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={f.image}
-                    alt=""
-                    className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/30 to-transparent" />
-                </div>
-                <div className="relative flex h-full flex-col justify-end p-6">
-                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-gold text-navy-950">
-                    <f.icon width={22} height={22} />
-                  </div>
-                  <h3 className="font-display text-base font-semibold tracking-wide text-white">
-                    {f.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-300">{f.text}</p>
-                </div>
-              </div>
+              <HorizontalCard key={f.title} {...f} />
             ))}
           </div>
         </div>
@@ -258,9 +218,9 @@ export default function HomePage() {
               <div className="hidden justify-center lg:flex">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={img.globe}
+                  src={img.aboutGlobe}
                   alt=""
-                  className="animate-breathe h-56 w-56 rounded-full object-cover shadow-[0_0_60px_-10px_rgba(232,163,61,0.4)] ring-1 ring-gold/30"
+                  className="animate-breathe h-56 w-56 object-contain drop-shadow-[0_0_50px_rgba(232,163,61,0.35)]"
                 />
               </div>
             </div>
