@@ -108,14 +108,14 @@ export default function WhatWeDoPage() {
         </div>
       </section>
 
-      {/* CAPABILITIES — light cards */}
-      <section className="section">
+      {/* CAPABILITIES — light cards on a light section */}
+      <section className="section bg-slate-100">
         <div className="container-x grid gap-6 lg:grid-cols-3">
           {capabilities.map((c) => (
             <div
               key={c.title}
               data-reveal
-              className="flex flex-col overflow-hidden rounded-xl bg-slate-100 shadow-xl transition duration-300 hover:-translate-y-1.5"
+              className="flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl transition duration-300 hover:-translate-y-1.5"
             >
               <div className="relative h-44 overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -145,9 +145,9 @@ export default function WhatWeDoPage() {
       </section>
 
       {/* WHO WE WORK WITH + LET'S BUILD */}
-      <section className="section pt-0">
+      <section className="section bg-slate-100 pt-0">
         <div className="container-x">
-          <div className="overflow-hidden rounded-2xl border border-gold/20 bg-navy-900/60">
+          <div className="overflow-hidden rounded-2xl border border-gold/20 bg-navy-950">
             <div className="grid lg:grid-cols-[1.55fr_1fr]">
               <div className="p-8 sm:p-10">
                 <p className="eyebrow">WHO WE WORK WITH</p>
