@@ -208,13 +208,19 @@ export default function ValuePropositionPage() {
       </section>
 
       {/* LET'S BUILD · QUOTE · GET IN TOUCH (globe band) */}
-      <section className="relative overflow-hidden border-t border-white/10">
-        <div className="absolute inset-0">
+      <section className="relative overflow-hidden border-t border-white/10 bg-navy-950">
+        {/* Globe rising from the bottom-left, exactly as in the template */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={img.globe} alt="" className="h-full w-full object-cover opacity-40" />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-950/70" />
+          <img
+            src={img.globe}
+            alt=""
+            className="absolute -bottom-[18%] -left-[6%] h-[165%] w-[70%] object-cover object-center opacity-95 sm:w-[52%] lg:w-[44%]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-950/0 via-navy-950/35 to-navy-950" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-950/45 via-transparent to-navy-950/25" />
         </div>
-        <div className="container-x relative grid items-center gap-8 py-14 lg:grid-cols-3">
+        <div className="container-x relative grid items-center gap-8 py-16 lg:min-h-[340px] lg:grid-cols-3">
           <div data-reveal>
             <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gold/50 text-gold">
               <Send width={22} height={22} />
