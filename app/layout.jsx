@@ -42,6 +42,25 @@ export const metadata = {
     url: 'https://www.szglobalsolutions.com',
     siteName: 'SZ Global Solutions',
     type: 'website',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'SZ Global Solutions',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SZ Global Solutions — Origination. Structuring. Execution.',
+    description:
+      'A UK & UAE-based origination and transaction advisory firm connecting opportunities, capital and counterparties across global markets.',
+    images: ['/og-image.png'],
+  },
+  icons: {
+    icon: '/icon.png',
+    apple: '/apple-icon.png',
   },
 };
 
