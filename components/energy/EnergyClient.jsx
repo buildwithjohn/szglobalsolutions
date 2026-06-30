@@ -54,7 +54,7 @@ const PRODUCTS = [
     name: 'EN590 DIESEL',
     subtitle: 'Low Sulphur Diesel (EN590)',
     icon: Flame,
-    image: img.refinery,
+    image: img.en590,
     card: 'Low sulphur diesel supplied through established refinery relationships for international buyers and institutional counterparties.',
     tags: ['Road Transport', 'Mining', 'Industrial', 'Govt. Supply'],
     overview:
@@ -66,7 +66,7 @@ const PRODUCTS = [
     name: 'JET A-1',
     subtitle: 'Aviation Turbine Fuel',
     icon: Target,
-    image: img.airplane,
+    image: img.jeta1,
     card: 'High quality aviation turbine fuel for airlines, distributors and government procurement programmes.',
     tags: ['Aviation', 'Airlines', 'Distributors', 'Govt. Supply'],
     overview:
