@@ -501,18 +501,16 @@ export default function EnergyClient() {
               </h3>
               <div className="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-4">
                 {COMMODITIES.map((c) => (
-                  <button
+                  <div
                     key={c.id}
-                    type="button"
-                    onClick={() => setActive(c)}
                     data-reveal
-                    className="group relative h-64 overflow-hidden rounded-2xl border border-white/10 text-left transition duration-300 hover:-translate-y-1.5 hover:border-gold/60 hover:shadow-[0_24px_50px_-20px_rgba(0,0,0,0.9)]"
+                    className="group relative h-64 overflow-hidden rounded-2xl border border-white/10"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={c.image}
                       alt={c.name}
-                      className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-110"
+                      className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
                     />
                     {/* subtle bottom-only gradient so the image stays vivid */}
                     <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/35 to-transparent" />
@@ -525,7 +523,7 @@ export default function EnergyClient() {
                       </h4>
                       <p className="text-xs text-slate-200/90">{c.card}</p>
                     </div>
-                  </button>
+                  </div>
                 ))}
               </div>
             </div>
