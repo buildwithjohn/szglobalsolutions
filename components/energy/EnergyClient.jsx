@@ -34,17 +34,18 @@ const STRUCTURES = ['FOB', 'CIF', 'TTO', 'TTT', 'Tank-to-Vessel', 'Spot', 'Term 
 const MARKETS = ['West Africa', 'Middle East', 'Europe', 'Asia'];
 const NOTE = 'Product availability is subject to mandate, allocation and counterparty verification.';
 
+// Each counterparty uses a distinct image (no repeats).
 const CP = {
   refineries: { label: 'Refineries', image: img.refinery },
   trading: { label: 'Trading Houses', image: img.handshake },
-  importers: { label: 'Importers', image: img.shipping },
-  governments: { label: 'Governments', image: img.capitol },
+  importers: { label: 'Importers', image: img.heroPort },
+  governments: { label: 'Governments', image: img.government },
   utilities: { label: 'Utilities', image: img.powerlines },
-  industrial: { label: 'Industrial Buyers', image: img.refinery },
+  industrial: { label: 'Industrial Buyers', image: img.excavator },
   airlines: { label: 'Airlines', image: img.airplane },
-  distributors: { label: 'Distributors', image: img.shipping },
-  aviation: { label: 'Aviation', image: img.airplane },
-  noc: { label: 'National Oil Companies', image: img.oilRig },
+  distributors: { label: 'Distributors', image: img.distributors },
+  aviation: { label: 'Aviation', image: img.aviation },
+  noc: { label: 'National Oil Companies', image: img.en590 },
 };
 
 // ---------------------------------------------------------------------------- //
@@ -114,7 +115,7 @@ const PRODUCTS = [
     name: 'PETROCHEMICALS',
     subtitle: 'Feedstocks & Petrochemical Products',
     icon: Coins,
-    image: img.refinery,
+    image: img.petrochem,
     card: 'Feedstocks and petrochemical products for industrial and manufacturing applications.',
     tags: ['Feedstocks', 'Polymers', 'Solvents', 'Chemicals'],
     overview:
@@ -400,16 +401,10 @@ export default function EnergyClient() {
 
   return (
     <>
-      {/* HERO — Connecting Supply. Capital. Markets. */}
+      {/* HERO — text left, image bleeding out on the right */}
       <section className="relative overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={img.heroPort} alt="" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-950/45" />
-          <div className="absolute inset-0 bg-navy-950/45 sm:bg-transparent" />
-        </div>
-        <div className="container-x relative max-w-[1440px] py-20 sm:py-28">
-          <div className="max-w-2xl">
+        <div className="grid items-stretch lg:grid-cols-2">
+          <div className="px-5 py-16 sm:px-8 sm:py-20 lg:py-24 lg:pl-[max(2rem,calc((100vw-1440px)/2+1rem))] lg:pr-12">
             <p className="eyebrow animate-fade-up">ENERGY &amp; COMMODITIES</p>
             <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
               <span className="line-reveal block">
@@ -434,6 +429,13 @@ export default function EnergyClient() {
                 Our Capabilities <Arrow width={16} height={16} />
               </a>
             </div>
+          </div>
+
+          {/* Full-bleed hero image */}
+          <div className="relative min-h-[300px] lg:min-h-full">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={img.heroPort} alt="" className="absolute inset-0 h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-transparent to-transparent lg:w-1/3" />
           </div>
         </div>
       </section>
